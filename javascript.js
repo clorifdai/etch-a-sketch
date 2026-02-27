@@ -5,31 +5,43 @@ function addElement() {
     const containerDiv = document.createElement("div");
     containerDiv.className = "container";
     body.appendChild(containerDiv);
-    for (let i = 0; i <= 32; i++) {
-        const div = document.querySelector("div");
-        const itemDiv = document.createElement("div");
-        itemDiv.className = "item";
-        div.appendChild(itemDiv);
-    }
+
+    const div = document.querySelector(".container");
+    const subDiv = document.createElement("div");
+    subDiv.className = "sub-container";
+    div.appendChild(subDiv);
+
+    const subContainer = document.querySelector(".sub-container");
+    const screenDiv = document.createElement("div");
+    screenDiv.className = "screen-sketch";
+    subContainer.appendChild(screenDiv);
+    
+}
+// Source - https://stackoverflow.com/q/76609426
+// Posted by xxx, modified by community. See post 'Timeline' for change history
+// Retrieved 2026-02-27, License - CC BY-SA 4.0
+
+function makeGrids(size) {
+
 }
 
-function styleDiv() {
-    const container = document.querySelector(".container")
-    const nodeList = document.querySelectorAll(".item");
+function makeHover() {
+    const element = document.querySelector(".row");
 
-    container.style.display = "flex";
+    element.addEventListener("mouseover", event => {
+    console.log("Mouse in (over)");
+    });
 
-    for (let i = 0; i < nodeList.length; i++) {
-        nodeList[i].style.backgroundColor = "blue";
-        nodeList[i].style.height = "96px";
-        nodeList[i].style.width = "96px";
-        nodeList[i].style.margin = "2px 2px 2px 2px";
-    }
-
+    element.addEventListener("mouseout", event => {
+    alert("Mouse out");
+    });
 }
 
 
 addElement()
-styleDiv()
+// styleDiv()
+makeGrids(16);
+makeHover()
+
 
 
