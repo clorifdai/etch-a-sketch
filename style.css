@@ -36,6 +36,7 @@ body {
   width: 600px;
   height: 600px;
   background-color: #bfbfbf;
+  padding: 1px;
 }
 
 .screen-sketch>div {
@@ -43,6 +44,21 @@ body {
   flex: 1 0 auto;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  justify-items: stretch;
+  margin: 0;
+  height: 0;
+  width: 0;
+}
+.row {
+    background-color: rgb(255, 255, 255);
+    height: 37px;
+    width: 34px;
+    border: 1px solid black;
+}
 .row:hover {
-    background-color: blue;
+  background-color: blue;
 }
