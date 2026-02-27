@@ -17,30 +17,37 @@ function addElement() {
     subContainer.appendChild(screenDiv);
     
 }
-// Source - https://stackoverflow.com/q/76609426
-// Posted by xxx, modified by community. See post 'Timeline' for change history
-// Retrieved 2026-02-27, License - CC BY-SA 4.0
 
 function makeGrids(size) {
-
+    const screenSketxh = document.querySelector(".screen-sketch");
+    for (let i = 0; i < size; i++ ) {
+        const column = document.createElement("div");
+        column.className = "column";
+        // screenSketxh.appendChild(column);
+        for (let j = 1; j < size; j++) {
+            const row = document.createElement("div");
+            row.className = "row";
+            column.appendChild(row);
+        }
+        screenSketxh.appendChild(column);
+    }
 }
 
 function makeHover() {
-    const element = document.querySelector(".row");
+    const element = document.querySelectorAll(".row");
+    for (let i = 0; i < element.length; i++) {
+        element.addEventListener("click", event => {
+            element[i].style.backgroundColor = "blue";
+        });
 
-    element.addEventListener("mouseover", event => {
-    console.log("Mouse in (over)");
-    });
+    }
 
-    element.addEventListener("mouseout", event => {
-    alert("Mouse out");
-    });
 }
 
 
 addElement()
 // styleDiv()
-makeGrids(16);
+makeGrids(70);
 makeHover()
 
 
