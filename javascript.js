@@ -16,34 +16,60 @@ const screenDiv = document.createElement("div");
 screenDiv.className = "screen-sketch";
 subContainer.appendChild(screenDiv);
 
-let size = 20;
+// Button
 
-const screenSketxh = document.querySelector(".screen-sketch");
-for (let i = 0; i < size; i++ ) {
-    const column = document.createElement("div");
-    column.className = "column";
-    // screenSketxh.appendChild(column);
-    for (let j = 1; j < size; j++) {
-        const row = document.createElement("div");
-        row.className = "row";
-        column.appendChild(row);
+const reset = document.querySelector(".reset");
+reset.addEventListener("click", () => {
+    location.reload();
+})
+
+const size = prompt("Enter size of grid 16-100");
+if (size > 15 && size <= 100) {
+    makeGrid(size);
+    } else {
+    alert('Size must be less than 100x100');
     }
-    screenSketxh.appendChild(column);
+
+
+
+// Create Grid
+
+function makeGrid(size){
+    const screenSketxh = document.querySelector(".screen-sketch");
+    for (let i = 0; i < size; i++ ) {
+        const column = document.createElement("div");
+        column.className = "column";
+        // screenSketxh.appendChild(column);
+        for (let j = 1; j < size; j++) {
+            const row = document.createElement("div");
+            row.className = "row";
+            column.appendChild(row);
+        }
+        screenSketxh.appendChild(column);
+    }
+    randomColorFunction();
 }
+
+// Set random color
 
 let randomNum = () => {
     return Math.floor(Math.random() * 256);
 };
 
-const items = document.querySelectorAll(".row");
+function randomColorFunction() {
+    const items = document.querySelectorAll(".row");
 
-items.forEach((item) => {        
-    item.addEventListener("click", () => {
-        let randomColor = `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
-        item.style.backgroundColor = randomColor;
-        console.log("Item diklik! Warna berubah menjadi:", randomColor);
+    items.forEach((item) => {        
+        item.addEventListener("mouseover", () => {
+            let randomColor = `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
+            item.style.backgroundColor = randomColor;
+            console.log("Item diklik! Warna berubah menjadi:", randomColor);
+        });
     });
-});
+}
+
+
+
 
 
 
